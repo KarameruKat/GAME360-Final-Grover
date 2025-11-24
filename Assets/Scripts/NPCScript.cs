@@ -39,7 +39,7 @@ public class NPCScript : MonoBehaviour
                 StartCoroutine(Typing());
                 
             }
-            audioSource.PlayOneShot(talking);
+            
         }
 
         if (dialogueText.text == dialogue[index])
@@ -61,6 +61,7 @@ public class NPCScript : MonoBehaviour
     {
         foreach(char letter in dialogue[index].ToCharArray())
         {
+            audioSource.PlayOneShot(talking);
             dialogueText.text += letter;
             yield return new WaitForSeconds(wordSpeed);
         }

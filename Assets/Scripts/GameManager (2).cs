@@ -18,6 +18,7 @@ namespace Playertime
         public int enemiesKilled = 0;
         public float coinSpawnRate = 2f;
         private float nextCoinTime = 0f;
+        private Vector2 spawnPoint = new Vector2(-15f,-7f);
 
         [Header("UI References")]
         //public Text scoreText;
@@ -31,6 +32,8 @@ namespace Playertime
         private float timeRemaining;
         private bool isGameActive = true;
         private bool isPaused = false;
+        public GameObject Player;
+        
 
         private void Awake()
         {
