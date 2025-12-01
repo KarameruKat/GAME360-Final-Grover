@@ -1823,7 +1823,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 560835719306295461, guid: c7f0036e48915fc4b91834250f4aa364, type: 3}
+      - m_Target: {fileID: 1152490096}
         m_TargetAssemblyTypeName: UiScript, Assembly-CSharp
         m_MethodName: MainMenu
         m_Mode: 1
@@ -4154,6 +4154,14 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 8269353995175204065, guid: c7f0036e48915fc4b91834250f4aa364, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1152490096}
+    - target: {fileID: 8269353995175204065, guid: c7f0036e48915fc4b91834250f4aa364, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
     - target: {fileID: 8495119291715637882, guid: c7f0036e48915fc4b91834250f4aa364, type: 3}
       propertyPath: m_SizeDelta.x
       value: 422
@@ -4498,6 +4506,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1152490096}
+    - target: {fileID: 2683233039088054314, guid: 41bb98a61d421fc4fb1b5b6ca9637c8c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
     - target: {fileID: 2806363564913036869, guid: 41bb98a61d421fc4fb1b5b6ca9637c8c, type: 3}
       propertyPath: m_fontSize
       value: 60
@@ -4537,6 +4549,14 @@ PrefabInstance:
     - target: {fileID: 4945399081460879139, guid: 41bb98a61d421fc4fb1b5b6ca9637c8c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -424
+      objectReference: {fileID: 0}
+    - target: {fileID: 6821424388180127395, guid: 41bb98a61d421fc4fb1b5b6ca9637c8c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1152490096}
+    - target: {fileID: 6821424388180127395, guid: 41bb98a61d421fc4fb1b5b6ca9637c8c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 6898931610859377938, guid: 41bb98a61d421fc4fb1b5b6ca9637c8c, type: 3}
       propertyPath: m_SizeDelta.x

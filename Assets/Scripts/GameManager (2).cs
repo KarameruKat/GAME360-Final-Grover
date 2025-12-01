@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 namespace Playertime
 {
 
-    public class GameManager : MonoBehaviour
+    public class GameManagerTime : MonoBehaviour
     {
         // Singleton instance
-        public static GameManager Instance { get; private set; }
+        public static GameManagerTime Instance { get; private set; }
 
         [Header("Game Stats")]
         public int score = 0;
@@ -61,6 +61,7 @@ namespace Playertime
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             RefreshUIReferences();
+            Time.timeScale = 1f;
             UpdateUI();
         }
 

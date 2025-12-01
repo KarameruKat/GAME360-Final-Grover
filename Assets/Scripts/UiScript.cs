@@ -8,7 +8,7 @@ public class UiScript : MonoBehaviour {
    
     public void PlayGame()
     {
-        SceneManager.LoadScene("WalkableScene");
+        SceneManager.LoadSceneAsync("WalkableScene");
     }
 
     public void QuitGame()

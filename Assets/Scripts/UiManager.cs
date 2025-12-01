@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -13,6 +14,8 @@ public class UIManager : MonoBehaviour
     public GameObject victoryPanel;
 
     private int enemiesKilledCount = 0;
+    private int livesCount = 5;
+    private int scoreCount = 0;
 
     void Start()
     {
@@ -68,6 +71,7 @@ public class UIManager : MonoBehaviour
 
     void UpdateScore(object scoreData)
     {
+        scoreCount++;
         if (scoreText != null)
         {
             scoreText.text = "Score: " + scoreData.ToString();
@@ -76,6 +80,7 @@ public class UIManager : MonoBehaviour
 
     void UpdateLives(object stateData)
     {
+        livesCount++;
         if (livesText != null)
         {
             livesText.text = "Lives: " + stateData.ToString();
@@ -139,7 +144,8 @@ public class UIManager : MonoBehaviour
     {
         if (GameManager.Instance != null)
         {
-
+            scoreCount = 0;
+            livesCount = 5;
             enemiesKilledCount = 0;
             GameManager.Instance.RestartGame();
         }
