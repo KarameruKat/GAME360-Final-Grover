@@ -144,10 +144,11 @@ public class UIManager : MonoBehaviour
     {
         if (GameManager.Instance != null)
         {
-            scoreCount = 0;
-            livesCount = 5;
-            enemiesKilledCount = 0;
-            GameManager.Instance.RestartGame();
+
+            //scoreCount = 0;
+            //livesCount = 5;
+            //enemiesKilledCount = 0;
+            //GameManager.Instance.RestartGame();
         }
     }
 

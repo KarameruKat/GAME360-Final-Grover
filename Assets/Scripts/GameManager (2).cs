@@ -188,6 +188,7 @@ namespace Playertime
             score = 0;
             lives = 5;
             enemiesKilled = 0;
+            timeRemaining = 0;
 
             // Hide game over panel
             //if (gameOverPanel) gameOverPanel.SetActive(false);

@@ -17,9 +17,10 @@ public class GameManager : MonoBehaviour
     public float coinSpawnRate = 2f;
     private float nextCoinTime = 0f;
 
-    private AudioSource audioSource;
 
-    [Header("Sounds")]
+    [SerializeField] [Header("Sounds")]
+    private AudioSource audioSource;
+    public AudioClip music;
     public AudioClip youWin;
     public AudioClip youLose;
 
@@ -32,13 +33,21 @@ public class GameManager : MonoBehaviour
     public TMP_Text scoreText;
 
     //private int score = 0;
-    private float timeRemaining;
+    public float timeRemaining;
     private bool isGameActive = true;
     private bool isPaused = false;
+
+    
+
+    private void Start()
+    {
+        timeRemaining = 0;
+    }
 
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        
         // Singleton pattern implementation
         if (Instance == null)
         {
@@ -65,6 +74,7 @@ public class GameManager : MonoBehaviour
     {
         RefreshUIReferences();
         UpdateUI();
+        timeRemaining = 0;
     }
 
     private void Update()
@@ -162,7 +172,6 @@ public class GameManager : MonoBehaviour
     }
 
 
-
     public void quitGame()
     {
         Application.Quit();
@@ -196,6 +205,7 @@ public class GameManager : MonoBehaviour
         if (gameOverPanel) gameOverPanel.SetActive(true);
         audioSource.PlayOneShot(youLose);
         PauseGame();
+        timeRemaining = 0;
         //Time.timeScale = 0f; // Pause the game
     }
 
@@ -219,6 +229,7 @@ public class GameManager : MonoBehaviour
         score = 0;
         lives = 5;
         enemiesKilled = 0;
+        timeRemaining = 0;
 
         // Hide game over panel
         //if (gameOverPanel) gameOverPanel.SetActive(false);

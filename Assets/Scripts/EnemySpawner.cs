@@ -7,7 +7,12 @@ public class EnemySpawner : MonoBehaviour
     public float spawnRate = 4f;
     public Transform[] spawnPoints;
 
-    private float nextSpawnTime = 0f;
+    public float nextSpawnTime = 0f;
+
+    private void Start()
+    {
+        nextSpawnTime = 0f;
+    }
 
     private void Update()
     {
