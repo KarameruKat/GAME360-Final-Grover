@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     //public Text scoreText;
     public TMP_Text livesText;
     public TMP_Text enemiesKilledText;
+    public GameObject pauseMenu;
     public GameObject gameOverPanel;
     public GameObject gameWonPanel;
     public TMP_Text scoreText;
@@ -99,6 +100,7 @@ public class GameManager : MonoBehaviour
     {
         isPaused = true;
         Time.timeScale = 0f;
+        pauseMenu.SetActive(true);
         EventManager.TriggerEvent("OnGamePaused");
         Debug.Log("Game Paused");
     }
@@ -107,6 +109,7 @@ public class GameManager : MonoBehaviour
     {
         isPaused = false;
         Time.timeScale = 1f;
+        pauseMenu.SetActive(false);
         EventManager.TriggerEvent("OnGameResumed");
         Debug.Log("Game Resumed");
     }
@@ -118,6 +121,7 @@ public class GameManager : MonoBehaviour
         enemiesKilledText = GameObject.Find("EnemiesKilled")?.GetComponent<TMP_Text>();
         gameOverPanel = GameObject.Find("GameEndPanel");
         gameWonPanel = GameObject.Find("GameWonPanel");
+        pauseMenu = GameObject.Find("Pause Menu");
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(false);

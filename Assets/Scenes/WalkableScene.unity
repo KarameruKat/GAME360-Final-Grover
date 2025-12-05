@@ -414,7 +414,7 @@ Animator:
   m_GameObject: {fileID: 49951495}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 36c0dd732715e074cbd05cb93ca0b7c7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3823,13 +3823,13 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 10e1f11f7df2c8f43826f1841260eece, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.032
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 218
+  Priority: 56
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -5826,6 +5826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: 
+  timeRemaining: 0
 --- !u!114 &1391568719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9156,6 +9157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: PlayableLevel
+  timeRemaining: 0
 --- !u!58 &1817014007
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9636,7 +9638,7 @@ Animator:
   m_GameObject: {fileID: 1896645024}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e5cb81d07b46be54f8e43a20fd8e4270, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -9667,6 +9669,7 @@ MonoBehaviour:
   - I mean, I could take 'em on myself-
   - Of course.
   - .....but i think i'll just..stay over here.
+  animator: {fileID: 1896645029}
   BigGuyTalks: {fileID: 8300000, guid: ef610b3d4a3cddd4a8e09a6d0344d948, type: 3}
   stopAudioSource: 1
   contButton3: {fileID: 1253535115}

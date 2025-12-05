@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public TMP_Text enemiesKilledText;
     public GameObject gameOverPanel;
     public GameObject victoryPanel;
+    public GameObject pauseMenu;
 
     private int enemiesKilledCount = 0;
     private int livesCount = 5;
@@ -27,6 +28,8 @@ public class UIManager : MonoBehaviour
         EventManager.Subscribe("OnGameOver", ShowGameOver); // GAME OVER
         EventManager.Subscribe("OnLevelComplete", ShowVictory); // VICTORY
         EventManager.Subscribe("OnEnemiesKilled", UpdateEnemiesKilled);
+        EventManager.Subscribe("OnGamePaused", OnGamePaused);
+        EventManager.Subscribe("OnGameResumed", OnGameResumed);
 
         // Initialize
         if (gameOverPanel != null)
@@ -44,6 +47,12 @@ public class UIManager : MonoBehaviour
         if (enemiesKilledText != null)
         {
             enemiesKilledText.text = "Wasps Defeated: 0";
+        }
+
+        if (pauseMenu != null)
+        {
+            pauseMenu.SetActive(false);
+            Debug.Log("Pause Menu Disabled");
         }
     }
 
@@ -137,6 +146,28 @@ public class UIManager : MonoBehaviour
         else
         {
             Debug.LogError("Victory Panel is NULL!");
+        }
+    }
+
+    void OnGamePaused()
+    {
+        Debug.Log("SHOWING PAUSE PANEL");
+
+        if (pauseMenu != null)
+        {
+            pauseMenu.SetActive(true);
+            Debug.Log("Its paused now");
+        }
+    }
+
+    void OnGameResumed()
+    {
+        Debug.Log("BYE BYE PAUSE PANEL");
+
+        if (pauseMenu.activeInHierarchy)
+        {
+            pauseMenu.SetActive(false);
+            Debug.Log("Resumed");
         }
     }
 

@@ -11,7 +11,7 @@ namespace GideonSpeaks
         public TMP_Text gideonText;
         public string[] dialogue3;
         private int index;
-        //public Animator animator;
+        public Animator animator;
         private AudioSource audioSource;
         public AudioClip BigGuyTalks;
         [SerializeField] private bool stopAudioSource;
@@ -92,6 +92,7 @@ namespace GideonSpeaks
             if (other.CompareTag("Player"))
             {
                 playerIsClose = true;
+                animator.Play("GideonSpeaks");
             }
         }
 
@@ -101,6 +102,7 @@ namespace GideonSpeaks
             {
                 playerIsClose = false;
                 zeroText();
+                animator.Play("GideonsIdle");
             }
         }
     }
