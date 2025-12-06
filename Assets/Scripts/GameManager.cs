@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public AudioClip music;
     public AudioClip youWin;
     public AudioClip youLose;
+    public AudioClip lifeLose;
 
     [Header("UI References")]
     //public Text scoreText;
@@ -92,16 +93,23 @@ public class GameManager : MonoBehaviour
             if (isPaused)
                 ResumeGame();
             else
-                PauseGame();
+                PauseButton();
         }
 
     }
-    public void PauseGame()
+
+    public void PauseButton()
     {
         isPaused = true;
         Time.timeScale = 0f;
         pauseMenu.SetActive(true);
         EventManager.TriggerEvent("OnGamePaused");
+    }
+
+    public void PauseGame()
+    {
+        isPaused = true;
+        Time.timeScale = 0f;
         Debug.Log("Game Paused");
     }
 
@@ -159,6 +167,7 @@ public class GameManager : MonoBehaviour
     public void LoseLife()
     {
         lives--;
+        audioSource.PlayOneShot(lifeLose);
         Debug.Log($"Life lost! Lives remaining: {lives}");
         UpdateUI();
 
