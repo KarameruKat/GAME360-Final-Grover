@@ -9,6 +9,7 @@ TagManager:
   - Interface
   - Bullet
   - Wall
+  - NPC
   layers:
   - Default
   - TransparentFX

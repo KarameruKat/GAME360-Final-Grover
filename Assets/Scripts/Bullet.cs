@@ -7,6 +7,11 @@ public class Bullet : MonoBehaviour
     public float lifetime = 3f;
 
     private Rigidbody2D rb;
+    private Vector2 direction;
+    //private bool directionSet = false;
+
+    [Header("Direction")]
+    public Vector2 lastDirection = Vector2.down; // Default facing down
 
     private void Start()
     {
@@ -36,4 +41,18 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    /*public void SetDirection(Vector2 dir)
+    {
+        direction = dir.normalized;
+        directionSet = true;
+
+        Debug.Log("Bullet direction set to: " + direction);
+
+        // Immediately set velocity if Rigidbody2D exists
+        if (rb != null)
+        {
+            rb.linearVelocity = direction * speed;
+        }
+    }*/
 }

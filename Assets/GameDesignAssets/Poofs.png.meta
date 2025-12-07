@@ -1,0 +1,398 @@
+fileFormatVersion: 2
+guid: 585427619fc64e94ab00673159d5d311
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4087103730611081871
+    second: Poofs_0
+  - first:
+      213: 7324405399783355399
+    second: Poofs_1
+  - first:
+      213: -5788867300884292489
+    second: Poofs_2
+  - first:
+      213: -5290233334181206988
+    second: Poofs_3
+  - first:
+      213: -6534593470396808508
+    second: Poofs_4
+  - first:
+      213: -4732963117526047682
+    second: Poofs_5
+  - first:
+      213: 7972776037624099654
+    second: Poofs_6
+  - first:
+      213: 4955192714622946115
+    second: Poofs_7
+  - first:
+      213: 7353508290257838764
+    second: Poofs_8
+  - first:
+      213: 5090263439391565376
+    second: Poofs_9
+  - first:
+      213: -6862013200328334964
+    second: Poofs_10
+  - first:
+      213: -476013096855426000
+    second: Poofs_11
+  - first:
+      213: 4406914186034088517
+    second: Poofs_12
+  - first:
+      213: -3363587859002659478
+    second: Poofs_13
+  - first:
+      213: 405691967524316052
+    second: Poofs_14
+  - first:
+      213: 7206402391463453218
+    second: Poofs_15
+  - first:
+      213: -3542368219541347018
+    second: Poofs_16
+  - first:
+      213: 9065555168594686076
+    second: Poofs_17
+  - first:
+      213: 1296905678735686840
+    second: Poofs_18
+  - first:
+      213: -8359123734491625582
+    second: Poofs_19
+  - first:
+      213: -1643431712663613275
+    second: Poofs_20
+  - first:
+      213: -1972908098894581646
+    second: Poofs_21
+  - first:
+      213: -236534151023118335
+    second: Poofs_22
+  - first:
+      213: 7810174998100876770
+    second: Poofs_23
+  - first:
+      213: -3706818397208566083
+    second: Poofs_24
+  - first:
+      213: 2050950727043234922
+    second: Poofs_25
+  - first:
+      213: -5927539904436107995
+    second: Poofs_26
+  - first:
+      213: -4439156680139008629
+    second: Poofs_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Poofs_0
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 404
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17da0c8bfc0b747c0800000000000000
+      internalID: -4087103730611081871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poofs_1
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 404
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7043a0d97e385a560800000000000000
+      internalID: 7324405399783355399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poofs_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 202
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77cdaee4cdfc9afa0800000000000000
+      internalID: -5788867300884292489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poofs_3
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 202
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 434e239bfc05596b0800000000000000
+      internalID: -5290233334181206988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poofs_4
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 202
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c249654cd57055a0800000000000000
+      internalID: -6534593470396808508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poofs_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e34a5d4fe13215eb0800000000000000
+      internalID: -4732963117526047682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poofs_6
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 643b45c809df4ae60800000000000000
+      internalID: 7972776037624099654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Poofs_7
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 0
+        width: 202
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34b44bc258164c440800000000000000
+      internalID: 4955192714622946115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 7efdc85477ade9e469ed66c0e015b551
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Poofs_0: -4087103730611081871
+      Poofs_1: 7324405399783355399
+      Poofs_2: -5788867300884292489
+      Poofs_3: -5290233334181206988
+      Poofs_4: -6534593470396808508
+      Poofs_5: -4732963117526047682
+      Poofs_6: 7972776037624099654
+      Poofs_7: 4955192714622946115
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

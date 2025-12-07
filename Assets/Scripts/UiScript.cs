@@ -8,7 +8,7 @@ public class UiScript : MonoBehaviour {
    
     public void PlayGame()
     {
-        SceneManager.LoadScene("PlayableLevel");
+        SceneManager.LoadSceneAsync("WalkableScene");
     }
 
     public void QuitGame()
@@ -19,6 +19,8 @@ public class UiScript : MonoBehaviour {
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("StartMenu");
+       GameManager.Instance.RestartGame();
+
+       SceneManager.LoadScene("StartMenu");
     }
 }

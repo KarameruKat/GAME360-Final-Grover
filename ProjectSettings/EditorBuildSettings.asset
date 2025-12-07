@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/WalkableScene.unity
+    guid: 01881a8ed0b6e3e4e84e731383de8511
+  - enabled: 1
     path: Assets/Scenes/PlayableLevel.unity
     guid: e20f35e9c85470940b0de5f81434e240
   m_configObjects:

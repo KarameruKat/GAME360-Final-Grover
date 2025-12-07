@@ -1,7 +1,8 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,17 +17,39 @@ public class GameManager : MonoBehaviour
     public float coinSpawnRate = 2f;
     private float nextCoinTime = 0f;
 
+
+    [SerializeField] [Header("Sounds")]
+    private AudioSource audioSource;
+    public AudioClip music;
+    public AudioClip youWin;
+    public AudioClip youLose;
+    public AudioClip lifeLose;
+
     [Header("UI References")]
     //public Text scoreText;
     public TMP_Text livesText;
     public TMP_Text enemiesKilledText;
+    public GameObject pauseMenu;
     public GameObject gameOverPanel;
     public GameObject gameWonPanel;
     public TMP_Text scoreText;
 
+    //private int score = 0;
+    public float timeRemaining;
+    private bool isGameActive = true;
+    private bool isPaused = false;
+
+    
+
+    private void Start()
+    {
+        timeRemaining = 0;
+    }
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
+        
         // Singleton pattern implementation
         if (Instance == null)
         {
@@ -37,6 +60,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject); // Destroy duplicate GameManagers
         }
+
     }
     private void OnEnable()
     {
@@ -52,11 +76,50 @@ public class GameManager : MonoBehaviour
     {
         RefreshUIReferences();
         UpdateUI();
+        timeRemaining = 0;
     }
 
-    private void Start()
+    private void Update()
     {
-       // UpdateUI();
+        //InitializeGame();
+        // UpdateUI();
+        if (isGameActive && !isPaused)
+        {
+            timeRemaining += Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+                ResumeGame();
+            else
+                PauseButton();
+        }
+
+    }
+
+    public void PauseButton()
+    {
+        isPaused = true;
+        Time.timeScale = 0f;
+        pauseMenu.SetActive(true);
+        EventManager.TriggerEvent("OnGamePaused");
+    }
+
+    public void PauseGame()
+    {
+        isPaused = true;
+        Time.timeScale = 0f;
+        Debug.Log("Game Paused");
+    }
+
+    public void ResumeGame()
+    {
+        isPaused = false;
+        Time.timeScale = 1f;
+        pauseMenu.SetActive(false);
+        EventManager.TriggerEvent("OnGameResumed");
+        Debug.Log("Game Resumed");
     }
 
     private void RefreshUIReferences()
@@ -66,6 +129,7 @@ public class GameManager : MonoBehaviour
         enemiesKilledText = GameObject.Find("EnemiesKilled")?.GetComponent<TMP_Text>();
         gameOverPanel = GameObject.Find("GameEndPanel");
         gameWonPanel = GameObject.Find("GameWonPanel");
+        pauseMenu = GameObject.Find("Pause Menu");
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(false);
@@ -95,6 +159,7 @@ public class GameManager : MonoBehaviour
     public void PlayerWon()
     {
         gameWonPanel.SetActive(true);
+        audioSource.PlayOneShot(youWin);
         Time.timeScale = 0f; // Pause the game
         Debug.Log("You win!");
     }
@@ -102,6 +167,7 @@ public class GameManager : MonoBehaviour
     public void LoseLife()
     {
         lives--;
+        audioSource.PlayOneShot(lifeLose);
         Debug.Log($"Life lost! Lives remaining: {lives}");
         UpdateUI();
 
@@ -117,6 +183,7 @@ public class GameManager : MonoBehaviour
         AddScore(25); // 100 points per enemy
         Debug.Log($"Enemy killed! Total enemies defeated: {enemiesKilled}");
     }
+
 
     public void quitGame()
     {
@@ -134,6 +201,7 @@ public class GameManager : MonoBehaviour
     public void CollectiblePickedUp(int value)
     {
         AddScore(value);
+        EventManager.TriggerEvent("OnScoreChanged", score);
         Debug.Log($"Collectible picked up worth {value} points!");
     }
 
@@ -148,7 +216,10 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("GAME OVER!");
         if (gameOverPanel) gameOverPanel.SetActive(true);
-        Time.timeScale = 0f; // Pause the game
+        audioSource.PlayOneShot(youLose);
+        PauseGame();
+        timeRemaining = 0;
+        //Time.timeScale = 0f; // Pause the game
     }
 
     public void RestartGame()
@@ -160,14 +231,18 @@ public class GameManager : MonoBehaviour
         if (gameOverPanel) gameOverPanel.SetActive(false);
         UpdateUI();*/
 
+        EventManager.ClearAllEvents();
 
         // CRITICAL: Unpause the game first!
         Time.timeScale = 1f;
+        isPaused = false;
+        isGameActive = true;
 
         // Reset all game state
         score = 0;
         lives = 5;
         enemiesKilled = 0;
+        timeRemaining = 0;
 
         // Hide game over panel
         //if (gameOverPanel) gameOverPanel.SetActive(false);
@@ -212,4 +287,9 @@ public class GameManager : MonoBehaviour
             Destroy(collectible);
         }
     }
+
+    public int GetScore() => score;
+    public float GetTimeRemaining() => timeRemaining;
+    public bool IsGameActive() => isGameActive;
+    public bool IsPaused() => isPaused;
 }

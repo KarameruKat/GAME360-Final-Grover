@@ -1,3 +1,4 @@
+using Playertime;
 using UnityEngine;
 using UnityEngine.UI; // Required for UI components like Button
 
@@ -17,6 +18,7 @@ public class ReplayButtonHandler : MonoBehaviour
 
             // Add a new listener that calls the RestartGame method on the GameManager singleton
             replayButton.onClick.AddListener(() => GameManager.Instance.RestartGame());
+            replayButton.onClick.AddListener(() => GameManagerTime.Instance.RestartGame());
         }
     }
 }

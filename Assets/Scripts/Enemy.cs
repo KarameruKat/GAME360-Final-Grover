@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR;
 
 public class Enemy : MonoBehaviour
 {
@@ -11,10 +12,19 @@ public class Enemy : MonoBehaviour
 
     private Transform player;
     private Rigidbody2D rb;
+    public Animator animator;
+    public SpriteRenderer spriteRenderer;
+
+    private EnemyState currentState;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        EventManager.Subscribe("OnEnemyHit", Die);
+        if (rb == null) rb = GetComponent<Rigidbody2D>();
+        if (animator == null) animator = GetComponent<Animator>();
+        if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
+
+        ChangeState(new EnemyFlyState());
 
         // Find player
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -24,6 +34,25 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         ChasePlayer();
+
+        if (currentState != null)
+        {
+            currentState.UpdateState(this);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.Unsubscribe("OnEnemyHit", Die);
+    }
+    
+
+    public void ChangeState(EnemyState newState)
+    {
+        if (currentState != null)
+        {
+            currentState.ExitState(this);
+        }
     }
 
     private void ChasePlayer()
@@ -50,7 +79,7 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
-            Die();
+           Die();
         }
     }
 
@@ -59,28 +88,11 @@ public class Enemy : MonoBehaviour
         // This is where Singleton shines!
         // Any enemy can easily notify the GameManager
         GameManager.Instance.EnemyKilled();
-        Destroy(gameObject);
+        animator.SetTrigger("death");
+        ChangeState(new EnemyFlyState());
+        moveSpeed = 0f;
+        Destroy(gameObject, (float).5);
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        // Custom 2D circle for older Unity versions
-        Gizmos.color = Color.red;
-
-        int segments = 32;
-        float angle = 0f;
-        Vector3 lastPos = transform.position + new Vector3(detectionRange, 0, 0);
-
-        for (int i = 1; i <= segments; i++)
-        {
-            angle = (i * 360f / segments) * Mathf.Deg2Rad;
-            Vector3 newPos = transform.position + new Vector3(
-                Mathf.Cos(angle) * detectionRange,
-                Mathf.Sin(angle) * detectionRange,
-                0
-            );
-            Gizmos.DrawLine(lastPos, newPos);
-            lastPos = newPos;
-        }
-    }
+    
 }

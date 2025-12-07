@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,25 +16,27 @@ public class PlayerController : MonoBehaviour
     public int bulletCount;
     public float fireRate = 0.5f;
     private float nextFireTime = 0f;
+    private bool _fireSingle;
 
     [Header("Audio")]
     public AudioClip shootSound;
     public AudioClip CoinSound;
     private AudioSource audioSource;
 
+    private PlayerState currentState;
 
+    public Rigidbody2D rb;
+    public Animator animator;
+    public SpriteRenderer spriteRenderer;
+    public Vector2 moveInput;
 
-    private Rigidbody2D rb;
-    private Animator animator;
-    private object context;
-    private Vector2 moveInput;
-
-    private void Start()
+    void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        if (rb == null) rb = GetComponent<Rigidbody2D>();
+        if (animator == null) animator = GetComponent<Animator>();
+        if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
 
-        animator = GetComponent<Animator>();
-
+        ChangeState(new PlayerIdleState());
 
         // Get or add AudioSource component
         audioSource = GetComponent<AudioSource>();
@@ -52,6 +55,26 @@ public class PlayerController : MonoBehaviour
     {
         rb.linearVelocity = moveInput * moveSpeed;
         HandleShooting();
+
+        if (GameManager.Instance != null && GameManager.Instance.IsPaused())
+        {
+            return; // Skip all input when paused
+        }
+
+        if (currentState != null)
+        {
+            currentState.UpdateState(this);
+        }
+    }
+    public void ChangeState(PlayerState newState)
+    {
+        if (currentState != null)
+        {
+            currentState.ExitState(this);
+        }
+
+        currentState = newState;
+        currentState.EnterState(this);
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -78,45 +101,52 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void HandleShooting()
+    public void HandleShooting()
     {
 
-        if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
+        if (Input.GetKey(KeyCode.F) && Time.time >= nextFireTime)
         {
             FireBullet();
             nextFireTime = Time.time + fireRate;
+            //_fireSingle = true;
         }
 
     }
 
     private void FireBullet()
     {
-        if (GameManager.Instance.score > 400 && GameManager.Instance.score < 1000)
-        {
-            fireRate = 0.3f;
-        }
-
-        if (GameManager.Instance.score > 1500)
-        {
-            Instantiate(bulletPrefab, firePoint1.position, firePoint1.rotation);
-            Debug.Log("Extra Bullet");
-        }
-
-        if (GameManager.Instance.score > 4000)
-        { 
-            Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
-            Debug.Log("Extra Bullet");
-        }
-
-            if (GameManager.Instance.score > 8000)
-        {
-            Instantiate(bulletPrefab, firePoint3.position, firePoint3.rotation);
-            Debug.Log("Extra Bullet");
-        }
 
         if (bulletPrefab && firePoint)
-            { Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        {
+
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         }
+
+         if (GameManager.Instance.score > 400 && GameManager.Instance.score < 1000)
+         {
+             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+             fireRate = 0.3f;
+         }
+
+          if (GameManager.Instance.score > 1500)
+          {
+              Instantiate(bulletPrefab, firePoint1.position, firePoint1.rotation);
+              Debug.Log("Extra Bullet");
+          }
+
+          if (GameManager.Instance.score > 4000)
+          { 
+              Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
+              Debug.Log("Extra Bullet");
+          }
+
+              if (GameManager.Instance.score > 8000)
+          {
+              Instantiate(bulletPrefab, firePoint3.position, firePoint3.rotation);
+              Debug.Log("Extra Bullet");
+          }
+
+
         // Play shoot sound effect
         audioSource.PlayOneShot(shootSound);
     }
